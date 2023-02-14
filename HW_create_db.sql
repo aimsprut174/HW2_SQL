@@ -9,7 +9,7 @@ create table if not exists Artists (
 create table if not exists Genres_Artists (
   Genre_id integer not null references Genres(Id), 
   Artist_id integer not null references Artists(Id), 
-  constraint fkGA primary key (Genre_id, Artist_id)
+  constraint pkGA primary key (Genre_id, Artist_id)
  );
 
 create table if not exists Albums (
@@ -20,7 +20,7 @@ create table if not exists Albums (
 create table if not exists Artists_Albums (
   Artist_id integer not null references Artists(Id), 
   Album_id integer not null references Albums(Id), 
-  constraint fkAA primary key (Artist_id, Album_id)
+  constraint pkAA primary key (Artist_id, Album_id)
  );
 
 create table if not exists Tracks (
@@ -37,5 +37,5 @@ create table if not exists Collections (
 create table if not exists Collections_Tracks (
   Collection_id integer not null references Collections(Id), 
   Track_id integer not null references Tracks(Id), 
-  constraint fkCT primary key (Collection_id, Track_id)
+  constraint pkCT primary key (Collection_id, Track_id)
   );
